@@ -50,7 +50,7 @@
 		// 			console.log("removing...");
 		// 			title.removeEventListener("click", evt_f());
 		// 			console.log(evt_state);
-		// 			evt_state--;
+		// 			evt_stat++
 		// 			console.log(evt_state);
 		// 		}
 		// 	}
@@ -100,7 +100,6 @@
 		// appearing_title.style.marginBottom = "50px"; // To preserve accesibility without JavaScript
 		var appearing_title = document.querySelector(".landing_center h1");
 		appearing_title.style.opacity = "1";
-		// appearing_title.style.marginBottom = "0";
 		appearing_title.style.transform = "translateX(0)";
 		// !SECTION
 		// SECTION Text appear animation
@@ -138,4 +137,19 @@
 		}, 1000);
 		// !SECTION
 	});
+})();
+
+(function () {
+	const text_slider = document.querySelector(".text_slider");
+	const text = text_slider.dataset.text + " - ";
+	var i = 0;
+	window.setInterval(function () {
+		if (i < text.length) {
+			text_slider.innerHTML += text[i];
+			i++;
+		} else {
+			text_slider.innerHTML += text[0];
+			i = 1;
+		}
+	}, 50);
 })();

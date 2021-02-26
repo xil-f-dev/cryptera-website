@@ -14,12 +14,12 @@ body {
 	background-color: #24282b;
 	color: #e8e8e8;
 	font-family: "Quicksand", sans-serif;
-	overflow: hidden;
 }
 
 section.section_all_screen {
 	width: 100%;
 	height: 100vh;
+	position: relative;
 }
 
 h1,
@@ -474,5 +474,62 @@ section#section_2 {
 #section_2 h3 {
 	text-transform: uppercase;
 	margin-bottom: 10px;
+}
+
+/* - Text slider - */
+.defile_msg {
+	display: block;
+	padding: 5px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.defile_msg div {
+	position: absolute;
+	min-width: 100%; /* au minimum la largeur du conteneur */
+}
+
+.defile_msg div span,
+.defile_msg div:after {
+	position: relative;
+	display: inline-block;
+	font-size: 25px;
+	white-space: nowrap;
+	top: 0;
+}
+
+.defile_msg div span {
+	animation: defilement 10s infinite linear;
+}
+
+.defile_msg div:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: attr(data-text);
+	animation: defilement2 10s infinite linear;
+}
+
+@keyframes defilement {
+	0% {
+		margin-left: 0;
+	}
+	100% {
+		margin-left: -100%;
+	}
+}
+
+@keyframes defilement2 {
+	0% {
+		margin-left: 100%;
+	}
+	100% {
+		margin-left: 0%;
+	}
 }
 /* !SECTION */
